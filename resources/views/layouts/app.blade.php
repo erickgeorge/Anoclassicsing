@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="{{ asset('/fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{asset('/tables/datatables.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/tables/Bootstrap-4-4.1.1/css/bootstrap.css')}}"/>
@@ -45,6 +45,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('properties') }}">Properties</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('message') }}">Message</a>
                         </li>
                     </ul>
 

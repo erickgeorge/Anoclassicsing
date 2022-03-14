@@ -66,4 +66,5 @@ Route::get('/view_property/{id}', [App\Http\Controllers\HomeController::class, '
 Route::post('/post_photo/{id}', [App\Http\Controllers\HomeController::class, 'post_photo'])->name('postphoto')->middleware('auth');
 Route::post('/photo_delete/{id}', [App\Http\Controllers\HomeController::class, 'delete_photo'])->name('deletephoto')->middleware('auth');
 Route::post('/post_edit_property/{id}', [App\Http\Controllers\HomeController::class, 'post_edit_property'])->name('editpostproperty')->middleware('auth');
-
+Route::get('/messages', [App\Http\Controllers\HomeController::class, 'messages'])->name('message')->middleware('auth');
+Route::post('/post_message', [App\Http\Controllers\HomeController::class, 'postmessage'])->name('postmessage')->middleware('auth');

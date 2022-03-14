@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\property;
 use App\Models\propimage;
+use App\Models\message;
 
 
 use Illuminate\Support\Facades\Storage;
@@ -43,6 +44,12 @@ class HomeController extends Controller
         return view('categories',['categ' => $categ]);
     }
 
+    public function messages()
+    {
+        $message = message::get();
+        return view('message',['message' => $message]);
+    }
+
 
     public function delete_category($id)
     {
@@ -50,6 +57,16 @@ class HomeController extends Controller
         $categ->status = 2;
         $categ->save();
         return redirect()->back()->with(['message' => 'Category Deleted' ]);
+    }
+
+    public function postmessage(request $request)
+    {
+        $message = new message();
+        $message->name = $request['name'];
+        $message->email = $request['email'];
+        $message->message = $request['message'];
+        $message->save();
+        return redirect()->back()->with(['message' => 'Your Message Received Successifully. Thanks for contacting Us.' ]);
     }
 
     public function edit_category(request $request, $id)
