@@ -40,11 +40,13 @@ Route::get('/viewmore_{id}', function ($id) {
 
 
 Route::get('/contact_us', function () {
-    return view('contactus');
+    $categ = category::where('status',1)->get();
+    return view('contactus',['categ' => $categ]);
 });
 
 Route::get('/about_us', function () {
-    return view('aboutus');
+    $categ = category::where('status',1)->get();
+    return view('aboutus',['categ' => $categ]);
 });
 
 
